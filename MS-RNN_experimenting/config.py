@@ -21,7 +21,7 @@ import numpy as np
 # MS-LSTM  MK-LSTM
 
 cfg = edict()
-cfg.model_name = 'MS-LSTM'  # BD
+cfg.model_name = 'ConvLSTM'  # BD
 cfg.gpu = '0, 1, 2, 3'
 cfg.gpu_nums = len(cfg.gpu.split(','))
 cfg.work_path = 'MS-RNN_experimenting'  # BD
@@ -29,7 +29,7 @@ cfg.dataset = 'kth_160_png'  # moving-mnist-20  kth_160_png  taxiBJ  HKO-7-180-w
 if ('HKO' in cfg.dataset) or ('MeteoNet' in cfg.dataset) or ('DWD' in cfg.dataset) or ('RAIN-F' in cfg.dataset):
     cfg.data_path = 'Precipitation-Nowcasting'
 else:
-    cfg.data_path = 'Spatiotemporal'
+    cfg.data_path = ''# 'Spatiotemporal'
 cfg.lstm_hidden_state = 64
 cfg.kernel_size = 3
 cfg.batch = int(4 / len(cfg.gpu.split(',')))
@@ -118,7 +118,7 @@ cfg.LSTM_layers = 6
 cfg.metrics_decimals = 3
 
 # Windows root path
-cfg.root_path = 'C:/Users/briid/Documents/Research/Tornado-prediction-with-ML/experimentation'   # BD
+cfg.root_path = 'C:/Users/briid/Documents/Research/Tornado-prediction-with-ML/experimentation/tornado-forecasting'   # BD
 
 cfg.GLOBAL = edict()
 cfg.GLOBAL.MODEL_LOG_SAVE_PATH = os.path.join(cfg.root_path, cfg.work_path, 'save', cfg.dataset, cfg.model_name)

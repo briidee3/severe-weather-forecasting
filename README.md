@@ -14,5 +14,8 @@ CS480 Research Project, Summer '23
 
 This repo is primarily (most likely) going to be used for my own personal use in keeping track of things, version control and all that sorta stuff. 
 
+Also, ***everything is currently a work in progress***.
+
+
 
 BD 2023
