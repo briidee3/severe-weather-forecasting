@@ -1,1 +1,5 @@
-dataset/*
+dataset/*.zip
+dataset/*.avi
+dataset/*.rar
+*.png
+*.avi
