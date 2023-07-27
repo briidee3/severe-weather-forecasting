@@ -8,9 +8,9 @@ import math
 
 def scheduled_sampling(shape, eta):
     S, B, C, H, W = shape
-    # 随机种子已固定, 生成[0,1)随机数，形状 = (pre_len-1行，batch_size列)
+    # Random seed fixed, generate [0,1) random number, shape = (pre_len-1 rows, batch_size columns)
     random_flip = np.random.random_sample((S - 1, B))  # outS-1 * B
-    true_token = (random_flip < eta)  # 若eta为1，true_token[t, i]全部为True，mask元素全为1
+    true_token = (random_flip < eta)  # If eta is 1, true_token[t, i] are all true, and mask elements are all 1s
     one = torch.FloatTensor(1, C, H, W).fill_(1.0).cuda()  # 1*C*H*W
     zero = torch.FloatTensor(1, C, H, W).fill_(0.0).cuda()  # 1*C*H*W
     masks = []
@@ -45,8 +45,8 @@ def reverse_scheduled_sampling(shape_r, epoch):
     S, B, C, H, W = shape_r
     random_flip_r = np.random.random_sample((cfg.in_len - 1, B))  # inS-1 * B
     random_flip = np.random.random_sample((S - cfg.in_len - 1, B))  # outS-1 * B
-    true_token_r = (random_flip_r < eta_r)  # 若eta为1，true_token[t, i]全部为True，mask元素全为1
-    true_token = (random_flip < eta)  # 若eta为0，true_token[t, i]全部为False，mask元素全为0
+    true_token_r = (random_flip_r < eta_r)  #If eta is 1, true_token[t, i] are all true, and mask elements are all 1s
+    true_token = (random_flip < eta)  # If eta is 0, true_token[t, i] are all False and mask elements are all 0
     one = torch.FloatTensor(1, C, H, W).fill_(1.0).cuda()  # 1*C*H*W
     zero = torch.FloatTensor(1, C, H, W).fill_(0.0).cuda()  # 1*C*H*W
     masks = []

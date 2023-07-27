@@ -25,7 +25,7 @@ cfg.model_name = 'MS-LSTM'  # BD
 cfg.gpu = '0, 1, 2, 3'
 cfg.gpu_nums = len(cfg.gpu.split(','))
 cfg.work_path = 'MS-RNN_experimenting'  # BD
-cfg.dataset = 'test_set_5'  # moving-mnist-20  kth_160_png  taxiBJ  HKO-7-180-with-mask  MeteoNet-120  DWD-12-480  RAIN-F
+cfg.dataset = 'GOES-ABI_test-set-5'  # moving-mnist-20  kth_160_png  taxiBJ  HKO-7-180-with-mask  MeteoNet-120  DWD-12-480  RAIN-F
 if ('HKO' in cfg.dataset) or ('MeteoNet' in cfg.dataset) or ('DWD' in cfg.dataset) or ('RAIN-F' in cfg.dataset):
     cfg.data_path = 'Precipitation-Nowcasting'
 else:
@@ -87,12 +87,12 @@ elif 'RAIN-F' in cfg.dataset:
     cfg.out_len = 2
     cfg.epoch = 8
 # BD custom config for working with custom data/dataset
-elif 'test_set_5' in cfg.dataset:
+elif 'GOES' in cfg.dataset:
     cfg.width = 250 #500
     cfg.height = 250 #500
     cfg.in_len = 6
     cfg.out_len = 6
-    cfg.epoch = 8
+    cfg.epoch = 10
 
 cfg.early_stopping = False
 cfg.early_stopping_patience = 3
@@ -118,7 +118,9 @@ cfg.LSTM_layers = 6
 cfg.metrics_decimals = 3
 
 # Windows root path
-cfg.root_path = 'C:/Users/briid/Documents/Research/Tornado-prediction-with-ML/experimentation/tornado-forecasting'   # BD
+##cfg.root_path = 'C:/Users/briid/Documents/Research/Tornado-prediction-with-ML/experimentation/tornado-forecasting'   # BD
+# CoLab root path
+cfg.root_path = '/content/'
 
 cfg.GLOBAL = edict()
 cfg.GLOBAL.MODEL_LOG_SAVE_PATH = os.path.join(cfg.root_path, cfg.work_path, 'save', cfg.dataset, cfg.model_name)
