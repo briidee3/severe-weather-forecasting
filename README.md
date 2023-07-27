@@ -2,7 +2,7 @@
 
 CS480 Research Project, Summer '23
 
-### The basics of what I'm doing here:
+### The general idea of what I'm doing here:
 - Datasets: [PERiLS_2022 GOES ABI](https://doi.org/10.26023/GQMQ-Q2T1-TB0B) and [PERiLS_2022 GOES GLM](https://doi.org/10.26023/52N0-7C8Q-5J0R)
 - Feature engineering:
     - AMVs (Atmospheric Motion Vectors) via [OCTANE](https://github.com/JasonApke/OCTANE)
