@@ -1,3 +1,7 @@
+!dataset/GOES-ABI_test-set-5
+!dataset/GOES-ABI_test-set-5/*
+!dataset/GOES-ABI_test-set-5/*/*
+!dataset/GOES-ABI_test-set-5.zip
 dataset/*.zip
 dataset/*.avi
 dataset/*.rar
