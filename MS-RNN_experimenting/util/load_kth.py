@@ -82,7 +82,7 @@ class KTH(object):
             im = cv2.imread(fname)
             im = cv2.resize(im, (cfg.width, cfg.height))
             seq.append(im[:, :, 0])  # read in black and white  # S H W
-        return np.expand_dims(np.array(seq), 1)  # S*C*H*W
+        return np.expand_dims(np.array(seq), 1)  # S*C*H*W      # 
 
     def __getitem__(self, index):
         if self.train:

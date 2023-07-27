@@ -21,11 +21,11 @@ import numpy as np
 # MS-LSTM  MK-LSTM
 
 cfg = edict()
-cfg.model_name = 'MS-LSTM'  # BD
-cfg.gpu = '0, 1, 2, 3'
+cfg.model_name = 'MS-ConvLSTM'  # BD
+cfg.gpu = '0'   # only have one GPU at a time
 cfg.gpu_nums = len(cfg.gpu.split(','))
 cfg.work_path = 'MS-RNN_experimenting'  # BD
-cfg.dataset = 'GOES-ABI_test-set-5'  # moving-mnist-20  kth_160_png  taxiBJ  HKO-7-180-with-mask  MeteoNet-120  DWD-12-480  RAIN-F
+cfg.dataset = "GOES-ABI_test-set-5"  # moving-mnist-20  kth_160_png  taxiBJ  HKO-7-180-with-mask  MeteoNet-120  DWD-12-480  RAIN-F
 if ('HKO' in cfg.dataset) or ('MeteoNet' in cfg.dataset) or ('DWD' in cfg.dataset) or ('RAIN-F' in cfg.dataset):
     cfg.data_path = 'Precipitation-Nowcasting'
 else:
@@ -88,10 +88,11 @@ elif 'RAIN-F' in cfg.dataset:
     cfg.epoch = 8
 # BD custom config for working with custom data/dataset
 elif 'GOES' in cfg.dataset:
-    cfg.width = 250 #500
-    cfg.height = 250 #500
+    cfg.width = 256     # 256 instead of an even division of 500 (original image size) due to the RNN Upsampling process
+    cfg.height = 256 * 3    # * 3 due to preprocessing steps
     cfg.in_len = 6
     cfg.out_len = 6
+    cfg.eval_len = 6
     cfg.epoch = 10
 
 cfg.early_stopping = False

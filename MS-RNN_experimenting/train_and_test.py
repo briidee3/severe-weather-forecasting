@@ -15,14 +15,14 @@ from thop import profile
 
 IN_LEN = cfg.in_len
 OUT_LEN = cfg.out_len
-if 'kth' in cfg.dataset:
+if ('kth' in cfg.dataset) or ('GOES' in cfg.dataset):   # both are sets of images, so treat them the same for now 
     EVAL_LEN = cfg.eval_len
 gpu_nums = cfg.gpu_nums
 decimals = cfg.metrics_decimals
 
 
-def normalize_data_cuda(batch):
-    batch = batch.permute(1, 0, 2, 3, 4)  # S x B x C x H x W
+def normalize_data_cuda(batch): 
+    batch = batch.permute(1, 0, 2, 3, 4)  # S x B x C x H x W       # just swaps out dimensions for one another
     batch = batch / 255.0
     return batch.cuda()
 
@@ -43,7 +43,7 @@ def train_and_test(model, optimizer, criterion, train_epoch, valid_epoch, loader
     train_valid_metrics_save_path, model_save_path, writer, save_path, test_metrics_save_path = [None] * 5
     train_loader, test_loader, valid_loader = loader
     start = time.time()
-    if 'kth' in cfg.dataset:
+    if ('kth' in cfg.dataset) or ('GOES' in cfg.dataset):
         eval_ = Evaluation(seq_len=IN_LEN + EVAL_LEN - 1, use_central=False)
     else:
         eval_ = Evaluation(seq_len=IN_LEN + OUT_LEN - 1, use_central=False)
@@ -98,7 +98,7 @@ def train_and_test(model, optimizer, criterion, train_epoch, valid_epoch, loader
                 Total_params = np.around(Total_params / 1e+6, decimals=decimals)
                 Trainable_params = np.around(Trainable_params / 1e+6, decimals=decimals)
                 NonTrainable_params = np.around(NonTrainable_params / 1e+6, decimals=decimals)
-                # 使用nn.BatchNorm2d时，flop计算会报错，需要注释掉
+                # Use nn. When BatchNorm2d, the flop calculation will report an error and need to be commented out
                 flops, _ = profile(model.module, inputs=([train_batch, eta, epoch], 'train',))
                 flops = np.around(flops / 1e+9, decimals=decimals)
                 params_lis.append(Total_params)

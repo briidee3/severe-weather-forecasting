@@ -83,7 +83,7 @@ class Model(nn.Module):
 
     def forward(self, inputs, mode=''):
         x, eta, epoch = inputs  # s b c h w
-        if 'kth' in cfg.dataset:
+        if ('kth' in cfg.dataset) or ('GOES' in cfg.dataset):
             if mode == 'train':
                 out_len = cfg.out_len
             else:

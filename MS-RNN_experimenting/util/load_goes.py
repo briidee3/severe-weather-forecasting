@@ -82,9 +82,20 @@ def load_file(data_root, data_type, seq_len, T):        # seq_len can be any num
     return seq_list, clip_dict
 
 
+def flatten_rgb_image(img):
+    # bgr not rgb, since we use cv2 images here
+    b = img[:,:,0]
+    g = img[:,:,1]
+    r = img[:,:,2]
+    new_img = np.concatenate((b, g))
+    new_img = np.concatenate((new_img, r))
+
+    return new_img
+
+
 class GOES(object):
     def __init__(self, train, seq_len = 10, T = 1):     # default to fairly limited seq_len and T (steps) due to limitations of current dataset
-        self.data_root = cfg.GLOBAL.DATASET_PATH
+        self.data_root = cfg.GLOBAL.DATASET_PATH + '/'  # the + '/' at the end is a bandaid fix for a strange issue with pathing
         self.classes = ['clouds']   # currently not separating into individual classes; may be done later
         if train:
             self.train = True
@@ -112,11 +123,14 @@ class GOES(object):
         seq = []
         # put together sequence of images
         for i in range(istart, iend):
-            fname = '%s/%s' % (dname, frames[i + 1])
+            fname = '%s/%s' % (dname, frames[i])
             im = cv2.imread(fname)
-            im = cv2.resize(im, (cfg.width, cfg.height))
-            seq.append(im)  # append as RGB (or in the case of cv2/opencv, BGR)
-        return np.expand_dims(np.array(seq), 1)
+            im = cv2.resize(im, (cfg.width, int(cfg.height / 3)))  # divide by 3 due to next step (flattening rgb image)
+            #im = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
+            # partition image by color (RGB/BGR) (results in larger image)
+            im = flatten_rgb_image(im)
+            seq.append(im)  # append as RGB (or in the case of cv2/opencv, BGR)     # S x H x W
+        return np.expand_dims(np.array(seq), 1)     # done for use with pytorch rnn     # S x C x H x W
     
     def __getitem__(self, index):
         if self.train:

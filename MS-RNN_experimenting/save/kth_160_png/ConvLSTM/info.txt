@@ -1,2 +1,0 @@
-# This run was done in Google Colab 7-15-2023
-# -BD
