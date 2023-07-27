@@ -21,15 +21,15 @@ import numpy as np
 # MS-LSTM  MK-LSTM
 
 cfg = edict()
-cfg.model_name = 'ConvLSTM'  # BD
+cfg.model_name = 'MS-LSTM'  # BD
 cfg.gpu = '0, 1, 2, 3'
 cfg.gpu_nums = len(cfg.gpu.split(','))
 cfg.work_path = 'MS-RNN_experimenting'  # BD
-cfg.dataset = 'kth_160_png'  # moving-mnist-20  kth_160_png  taxiBJ  HKO-7-180-with-mask  MeteoNet-120  DWD-12-480  RAIN-F
+cfg.dataset = 'test_set_5'  # moving-mnist-20  kth_160_png  taxiBJ  HKO-7-180-with-mask  MeteoNet-120  DWD-12-480  RAIN-F
 if ('HKO' in cfg.dataset) or ('MeteoNet' in cfg.dataset) or ('DWD' in cfg.dataset) or ('RAIN-F' in cfg.dataset):
     cfg.data_path = 'Precipitation-Nowcasting'
 else:
-    cfg.data_path = ''# 'Spatiotemporal'
+    cfg.data_path = ''  # 'Spatiotemporal'
 cfg.lstm_hidden_state = 64
 cfg.kernel_size = 3
 cfg.batch = int(4 / len(cfg.gpu.split(',')))
@@ -87,12 +87,12 @@ elif 'RAIN-F' in cfg.dataset:
     cfg.out_len = 2
     cfg.epoch = 8
 # BD custom config for working with custom data/dataset
-elif 'GOES' in cfg.dataset:
-    cfg.width = 500
-    cfg.height = 500
-    cfg.in_len = 5     # BD: it seems this is for the number of data/images to use as input, and out_len for output
-    cfg.out_len = 5
-    cfg.epoch = 10
+elif 'test_set_5' in cfg.dataset:
+    cfg.width = 250 #500
+    cfg.height = 250 #500
+    cfg.in_len = 6
+    cfg.out_len = 6
+    cfg.epoch = 8
 
 cfg.early_stopping = False
 cfg.early_stopping_patience = 3

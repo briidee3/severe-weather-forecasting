@@ -8,6 +8,8 @@ from util.load_taxibj import load_taxiBJ
 from util.load_human import load_hmn
 from util.load_hko import load_HKO
 from util.load_rain_f import load_rain_f_data
+# custom loader for GOES data  -BD
+from util.load_goes import load_GOES
 
 
 def load_data():
@@ -34,8 +36,9 @@ def load_data():
         return load_HKO()
     elif 'RAIN-F' in cfg.dataset:
         return load_rain_f_data()
-    elif 'GOES' in cfg.dataset:
-        return load_goes_data()
+    # load GOES data (experimental)
+    elif 'GOES' in cfg.dataset:    
+        return load_GOES()
 
 
 

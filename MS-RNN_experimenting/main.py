@@ -1,7 +1,7 @@
 import os
 from config import cfg
 
-# gpus 需要放在torch之前
+# GPUs need to be placed before Torch
 os.environ["CUDA_VISIBLE_DEVICES"] = cfg.gpu
 
 import torch
@@ -21,11 +21,11 @@ import argparse
 # fix init
 def fix_random(seed):
     os.environ['PYTHONHASHSEED'] = str(seed)
-    random.seed(seed)  # 固定random.random()生成的随机数
-    np.random.seed(seed)  # 固定np.random()生成的随机数
-    torch.manual_seed(seed)  # 固定CPU生成的随机数
-    torch.cuda.manual_seed(seed)  # 固定GPU生成的随机数-单卡
-    torch.cuda.manual_seed_all(seed)  # 固定GPU生成的随机数-多卡
+    random.seed(seed)  # Fixed random.random() generated random numbers
+    np.random.seed(seed)  # Fixed np.random() generated random numbers
+    torch.manual_seed(seed)  # Fixed CPU-generated random numbers
+    torch.cuda.manual_seed(seed)  # Fixed GPU-generated random numbers - single card
+    torch.cuda.manual_seed_all(seed)  # Fixed GPU-generated random numbers - multi-card
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = False
     torch.backends.cudnn.enabled = False

@@ -30,7 +30,7 @@ class Data(Dataset):
         self.LEN = (self.IN_LEN + self.OUT_LEN) * self.stride
 
     def __getitem__(self, index):
-        # train，test，valid都为按次序取，最后用dataloder的shuffle处理
+        # train, test, and validity are all taken in order, and finally processed with Dataloder's shuffle
         img_1_batch_path_list = self._img_path_list[index * self.LEN: (index + 1) * self.LEN]
         img_1_batch_path_list = img_1_batch_path_list[0::self.stride]
         l = []
@@ -38,7 +38,7 @@ class Data(Dataset):
             img_path = img_1_batch_path_list[i]
             img = cv2.imread(os.path.join(self._data_path, img_path), flags=0)  # H*W
             img = cv2.resize(img, (cfg.width, cfg.height))
-            # 默认参数为1，读取RGB图像，因此为三通道（3维数组），flags=0时，是单通道（2维数组）
+            # The default parameter is 1, read RGB images, so it is three channels (3-dimensional array), flags=0, it is a single channel (2-dimensional array)
             l.append(img)
         l = np.array(l)  # S*H*W
         frames = np.expand_dims(l, 1)  # S*1*H*W

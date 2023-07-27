@@ -81,12 +81,12 @@ class KTH(object):
             fname = '%s/%s' % (dname, '%d.png' % i)
             im = cv2.imread(fname)
             im = cv2.resize(im, (cfg.width, cfg.height))
-            seq.append(im[:, :, 0])  # 读黑白的  # S H W
+            seq.append(im[:, :, 0])  # read in black and white  # S H W
         return np.expand_dims(np.array(seq), 1)  # S*C*H*W
 
     def __getitem__(self, index):
         if self.train:
-            return torch.from_numpy(self.get_sequence(index))  # main中的dataloader处理shuffle
+            return torch.from_numpy(self.get_sequence(index))  # The dataloader in main handles shuffle
         else:
             return torch.from_numpy(self.get_sequence(index))
 

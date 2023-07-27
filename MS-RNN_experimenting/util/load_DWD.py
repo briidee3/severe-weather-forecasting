@@ -8,7 +8,7 @@ sys.path.append("..")
 from config import cfg
 import cv2
 
-"""太慢了，重写后和load_HKO合并为load_data"""
+"""Too slow, rewritten and merged with load_HKO into load_data"""
 
 
 def R_to_dBZ(R):
