@@ -44,6 +44,7 @@ Also, ***everything is currently a work in progress***.
 
  #### IN PROGRESS (7-27-23):
  - Fix batching issue with MS-LSTM
+ - Finish script to automate data aggregation for compilation of next dataset(s)
 
 
 #### TO DO (7-27-23):
