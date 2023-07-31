@@ -36,6 +36,7 @@ Also, ***everything is currently a work in progress***.
     - Visualized speed and direction
     - Decided directly using *U* and *V* would be better for training purposes (especially when feeding data as images)
     - RGB composites of *U*, *V*, and *Rad* were made for each timestep in the aforementioned prototype custom dataset
+ - Finish script to automate data aggregation for compilation of next dataset(s)
  
 - Lots of experimentation and trial and error
     - Learning how to use several APIs (i.e. SatPy, CartoPy, GeoPy, netCDF4, PySPOD, etc.) for messing around with the raw ABI data
@@ -43,8 +44,8 @@ Also, ***everything is currently a work in progress***.
 
 
  #### IN PROGRESS (7-27-23):
- - Fix batching issue with MS-LSTM
- - Finish script to automate data aggregation for compilation of next dataset(s)
+ - Fix batching issue with MS-LSTM module
+ - Integrate PySPOD
 
 
 #### TO DO (7-27-23):
