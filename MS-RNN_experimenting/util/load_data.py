@@ -9,7 +9,7 @@ from util.load_human import load_hmn
 from util.load_hko import load_HKO
 from util.load_rain_f import load_rain_f_data
 # custom loader for GOES data  -BD
-from util.load_goes import load_GOES
+from util.load_goes_st7 import load_GOES
 
 
 def load_data():
