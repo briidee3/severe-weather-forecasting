@@ -1,3 +1,5 @@
+# modified to run with torchrun instead of torch.distributed.launch (approx. lines 49-52)   -BD
+
 import os
 from config import cfg
 
@@ -44,19 +46,20 @@ LR = cfg.LR
 model = Model(nets[0], nets[1], nets[2])
 
 # run: python -m torch.distributed.launch --nproc_per_node=4 --master_port 39985 main.py
-parser = argparse.ArgumentParser()
-parser.add_argument("--local_rank", type=int, default=-1, help='node rank for distributed training')
-args = parser.parse_args()
-torch.cuda.set_device(args.local_rank)
-print('local_rank: ', args.local_rank)
+#parser = argparse.ArgumentParser()
+#parser.add_argument("--local_rank", type=int, default=-1, help='node rank for distributed training')
+#args = parser.parse_args()
+local_rank = int(os.environ["LOCAL_RANK"])
+torch.cuda.set_device(local_rank)
+print('local_rank: ', local_rank)
 
 # parallel group
 torch.distributed.init_process_group(backend="nccl")
 
 # model parallel
 model = model.cuda()
-model = nn.parallel.DistributedDataParallel(model, find_unused_parameters=True, device_ids=[args.local_rank],
-                                            output_device=args.local_rank)
+model = nn.parallel.DistributedDataParallel(model, find_unused_parameters=True, device_ids=[local_rank],
+                                            output_device=local_rank)
 
 threads = cfg.dataloader_thread
 train_data, valid_data, test_data = load_data()

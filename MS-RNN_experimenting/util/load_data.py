@@ -9,7 +9,7 @@ from util.load_human import load_hmn
 from util.load_hko import load_HKO
 from util.load_rain_f import load_rain_f_data
 # custom loader for GOES data  -BD
-from util.load_goes_st7 import load_GOES
+from util.load_goes_ts_seven import load_GOES_ts_seven
 
 
 def load_data():
@@ -38,7 +38,7 @@ def load_data():
         return load_rain_f_data()
     # load GOES data (experimental)
     elif 'GOES' in cfg.dataset:    
-        return load_GOES()
+        return load_GOES_ts_seven()
 
 
 

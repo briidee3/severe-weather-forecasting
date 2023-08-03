@@ -96,11 +96,11 @@ elif 'GOES' in cfg.dataset:
         cfg.eval_len = 6
         cfg.epoch = 10
     elif 'test-set-7' in cfg.dataset:
-        cfg.width = 256
-        cfg.height = 256 * 3
-        cfg.in_len = 10
-        cfg.out_len = 10
-        cfg.eval_len = 10
+        cfg.width = 128     # 256 uses too much memory
+        cfg.height = 128 * 3
+        cfg.in_len = 6
+        cfg.out_len = 6
+        cfg.eval_len = 6
         cfg.epoch = 10
 
 cfg.early_stopping = False
