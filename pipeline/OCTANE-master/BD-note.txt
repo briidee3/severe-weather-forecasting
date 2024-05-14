@@ -1,0 +1,7 @@
+# BD 2023
+
+I have made several changes, particularly relating to dependencies, so as to allow this to work in Google Colab as well as other more recent machines.
+
+Some useful links:
+- netcdf-cxx legacy (for library): https://archive.org/download/archlinux_pkg_netcdf-cxx
+- netcdf (for library): https://downloads.unidata.ucar.edu/netcdf/
