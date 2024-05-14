@@ -1,6 +1,2 @@
-dataset/*
-tools/*
-!dataset/GOES-ABI_test-set-5.zip
-MS-RNN_experimenting.zip
-*.png
-*.avi
+dataset/example_dataset.zip
+pipeline/OCTANE-master.zip

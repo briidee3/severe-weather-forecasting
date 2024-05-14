@@ -1,0 +1,39 @@
+!./octane -alpha -lambda -ir -i1 /content/drive/MyDrive/Colab\ Notebooks/tornado-forecasting/data/ABI/20220403_00/OR_ABI-L1b-RadM1-M6C01_G16_s20220930000278_e20220930000335_c20220930000384.nc -i2 /content/drive/MyDrive/Colab\ Notebooks/tornado-forecasting/data/ABI/20220403_00/OR_ABI-L1b-RadM1-M6C01_G16_s20220930001249_e20220930001306_c20220930001340.nc -o /content/drive/MyDrive/Colab\ Notebooks/tornado-forecasting/OCTANE-out/
+
+
+command: ./octane -alpha 5 -lambda 1 -ir 
+
+
+prefix: /content/drive/MyDrive/Colab Notebooks/tornado-forecasting/data/ABI/20220406/testing-data/region-2/
+
+-i1 .../OR_ABI-L1b-RadM2-M6C08_G16_s20220961700549_e20220961701007_c20220961701053.nc
+-i2 .../OR_ABI-L1b-RadM2-M6C08_G16_s20220961701549_e20220961702007_c20220961702052.nc
+
+-i1cth .../OR_ABI-L1b-RadM2-M6C11_G16_s20220961700549_e20220961701007_c20220961701048.nc
+-i2cth .../OR_ABI-L1b-RadM2-M6C11_G16_s20220961701549_e20220961702007_c20220961702058.nc
+
+-ic21 .../OR_ABI-L1b-RadM2-M6C09_G16_s20220961700549_e20220961701012_c20220961701057.nc
+-ic22 .../OR_ABI-L1b-RadM2-M6C09_G16_s20220961701549_e20220961702012_c20220961702049.nc
+
+-ic31 .../OR_ABI-L1b-RadM2-M6C10_G16_s20220961700549_e20220961701018_c20220961701052.nc
+-ic32 .../OR_ABI-L1b-RadM2-M6C10_G16_s20220961701549_e20220961702018_c20220961702052.nc
+
+
+
+-i1 /content/drive/MyDrive/Colab Notebooks/tornado-forecasting/data/ABI/20220406/testing-data/region-2/OR_ABI-L1b-RadM2-M6C08_G16_s20220961700549_e20220961701007_c20220961701053.nc
+-i2 /content/drive/MyDrive/Colab Notebooks/tornado-forecasting/data/ABI/20220406/testing-data/region-2/OR_ABI-L1b-RadM2-M6C08_G16_s20220961701549_e20220961702007_c20220961702052.nc
+
+-i1cth /content/drive/MyDrive/Colab Notebooks/tornado-forecasting/data/ABI/20220406/testing-data/region-2/OR_ABI-L1b-RadM2-M6C11_G16_s20220961700549_e20220961701007_c20220961701048.nc
+-i2cth /content/drive/MyDrive/Colab Notebooks/tornado-forecasting/data/ABI/20220406/testing-data/region-2/OR_ABI-L1b-RadM2-M6C11_G16_s20220961701549_e20220961702007_c20220961702058.nc
+
+-ic21 /content/drive/MyDrive/Colab Notebooks/tornado-forecasting/data/ABI/20220406/testing-data/region-2/OR_ABI-L1b-RadM2-M6C09_G16_s20220961700549_e20220961701012_c20220961701057.nc
+-ic22 /content/drive/MyDrive/Colab Notebooks/tornado-forecasting/data/ABI/20220406/testing-data/region-2/OR_ABI-L1b-RadM2-M6C09_G16_s20220961701549_e20220961702012_c20220961702049.nc
+
+-ic31 /content/drive/MyDrive/Colab Notebooks/tornado-forecasting/data/ABI/20220406/testing-data/region-2/OR_ABI-L1b-RadM2-M6C10_G16_s20220961700549_e20220961701018_c20220961701052.nc
+-ic32 /content/drive/MyDrive/Colab Notebooks/tornado-forecasting/data/ABI/20220406/testing-data/region-2/OR_ABI-L1b-RadM2-M6C10_G16_s20220961701549_e20220961702018_c20220961702052.nc
+
+
+
+full thing:
+!./octane -alpha 5 -lambda 1 -ir -i1 '/content/drive/MyDrive/Colab Notebooks/tornado-forecasting/data/ABI/20220406/testing-data/region-2/OR_ABI-L1b-RadM2-M6C08_G16_s20220961700549_e20220961701007_c20220961701053.nc' -i2 '/content/drive/MyDrive/Colab Notebooks/tornado-forecasting/data/ABI/20220406/testing-data/region-2/OR_ABI-L1b-RadM2-M6C08_G16_s20220961701549_e20220961702007_c20220961702052.nc' -i1cth '/content/drive/MyDrive/Colab Notebooks/tornado-forecasting/data/ABI/20220406/testing-data/region-2/OR_ABI-L1b-RadM2-M6C11_G16_s20220961700549_e20220961701007_c20220961701048.nc' -i2cth '/content/drive/MyDrive/Colab Notebooks/tornado-forecasting/data/ABI/20220406/testing-data/region-2/OR_ABI-L1b-RadM2-M6C11_G16_s20220961701549_e20220961702007_c20220961702058.nc' -ic21 '/content/drive/MyDrive/Colab Notebooks/tornado-forecasting/data/ABI/20220406/testing-data/region-2/OR_ABI-L1b-RadM2-M6C09_G16_s20220961700549_e20220961701012_c20220961701057.nc' -ic22 '/content/drive/MyDrive/Colab Notebooks/tornado-forecasting/data/ABI/20220406/testing-data/region-2/OR_ABI-L1b-RadM2-M6C09_G16_s20220961701549_e20220961702012_c20220961702049.nc' -ic31 '/content/drive/MyDrive/Colab Notebooks/tornado-forecasting/data/ABI/20220406/testing-data/region-2/OR_ABI-L1b-RadM2-M6C10_G16_s20220961700549_e20220961701018_c20220961701052.nc' -ic32 '/content/drive/MyDrive/Colab Notebooks/tornado-forecasting/data/ABI/20220406/testing-data/region-2/OR_ABI-L1b-RadM2-M6C10_G16_s20220961701549_e20220961702018_c20220961702052.nc'
+ 

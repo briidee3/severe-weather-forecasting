@@ -1,0 +1,13 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+ccompiler=gcc
+cppcompiler=g++
+
+Name: netcdf-cxx4
+Description: NetCDF C++ Client Library
+Version: 4.3.1
+Libs: -L${libdir} -lnetcdf_c++4
+Cflags: -I${includedir}
+Requires: netcdf
