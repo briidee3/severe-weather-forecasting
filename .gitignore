@@ -1,3 +1,5 @@
 dataset/example_dataset.zip
 pipeline/OCTANE-master.zip
 pipeline/OCTANE-master/src/cuda-samples/.git_old/objects/pack/*
+.ipynb_checkpoints/*
+.ipynb_checkpoints/
