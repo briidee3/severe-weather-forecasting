@@ -1,5 +1,5 @@
 ## Severe Weather Forecasting via the Sole Use of Satellite Data
-### (with the end goal of tornado prediction via satellite data alongside machine learning and fluid mechanics)
+(with the end goal of tornado prediction via satellite data alongside machine learning and fluid mechanics)
 
 
 About this project:
